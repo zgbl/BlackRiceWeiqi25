@@ -1,6 +1,6 @@
 // pages/api/tournament/list.js
 import dbConnect from '../../../lib/mongodb.js';
-import Tournament from '../../../models/Tournament';
+import Tournament from '../../../models/Tournament.js';
 import allowCors from '../withCors.js';
 
 async function handler(req, res) {
@@ -11,7 +11,7 @@ async function handler(req, res) {
         const tournaments = await Tournament.find({});
   
         tournaments.forEach(t => {
-          console.log(`Tournament: ${t.name} - ${t.location} - ${t.date}`);
+          console.log(`Tournament: ${t.TournamentName} - ${t.location} - ${t.TournamentStartDate}`);
         });
   
         res.status(200).json({ success: true, tournaments });
